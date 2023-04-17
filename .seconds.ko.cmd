@@ -1,0 +1,1 @@
+cmd_/home/student/Documents/Jiffies/seconds.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000 -T ./scripts/module-common.lds  --build-id  -o /home/student/Documents/Jiffies/seconds.ko /home/student/Documents/Jiffies/seconds.o /home/student/Documents/Jiffies/seconds.mod.o ;  true

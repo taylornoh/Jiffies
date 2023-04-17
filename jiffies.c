@@ -2,7 +2,7 @@
  * jiffies.c
  *
  * Kernel module that communicates with /proc file system.
- * 
+ *
  * The makefile must be modified to compile this program.
  * Change the line "hello.o" to "jiffies.o"
  *
@@ -58,7 +58,7 @@ void proc_exit(void) {
  * This function is called each time the /proc/jiffies is read,
  * and is called repeatedly until it returns 0, so
  * there must be logic that ensures it ultimately returns 0
- * once it has collected the data that is to go into the 
+ * once it has collected the data that is to go into the
  * corresponding /proc file.
  * params:
  * file:
@@ -80,7 +80,7 @@ ssize_t proc_read(struct file *file, char __user *usr_buf, size_t count, loff_t 
         rv = sprintf(buffer, "Jiffies: %lu\n", jiffies);
 
         // copies the contents of buffer to userspace usr_buf
-        copy_to_user(usr_buf, buffer, rv);
+        raw_copy_to_user(usr_buf, buffer, rv);
 
         return rv;
 }
